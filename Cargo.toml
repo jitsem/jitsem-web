@@ -1,0 +1,13 @@
+[package]
+name = "jitsem_website"
+version = "0.2.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.100"
+askama = "0.14.0"
+axum = "0.8.6"
+tokio = { version = "1.48.0", features = ["full"] }
+tower-http = { version = "0.6.6", features = ["fs"] }

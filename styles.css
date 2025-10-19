@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-jitsem-50: #f3f6fc;
+    --color-jitsem-100: #e7edf7;
+    --color-jitsem-200: #c9d8ee;
+    --color-jitsem-300: #99b7e0;
+    --color-jitsem-400: #6391cd;
+    --color-jitsem-500: #3d70b2;
+    --color-jitsem-600: #2e5a9b;
+    --color-jitsem-700: #26497e;
+    --color-jitsem-800: #233e69;
+    --color-jitsem-900: #223658;
+    --color-jitsem-950: #17233a;
+}
+
+#theme-toggle {
+    visibility: hidden;
+}
+
+#theme-toggle+label {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition-duration: 300ms;
+    content: "";
+}
+
+#theme-toggle:not(:checked)+label {
+    background-color: #f59e0b;
+    /* Tailwind amber-400 */
+}
+
+#theme-toggle:checked+label {
+    background-color: transparent;
+    box-shadow: inset -18px -16px 1px 1px #ddd;
+}

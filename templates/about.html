@@ -1,0 +1,63 @@
+{% extends "components/base.html" %} {% block content %}
+<div class="container mx-auto px-2 md:px-0">
+    <div class="flex flex-col md:flex-row justify-around items-center my-12">
+        <div class="md:px-10 py-4 md:py-0 flex-shrink-0">
+            <h1 class="text-4xl">Software Engineer</h1>
+            <h2 class="text-2xl text-jitsem-500 text-center">
+                Welcome to my website
+            </h2>
+        </div>
+        <img class="min-w-0" src="images/programming1.svg" alt="Man programming" />
+    </div>
+    <div class="mb-5">
+        <h4 class="text-jitsem-500 text-center py-2 mt-2 text-lg">
+            Hello world!
+        </h4>
+        <div class="flex flex-col md:flex-row justify-around items-center py-5">
+            <img class="w-64 collapse md:visible" src="images/hacking1.svg" alt="Man hacking" />
+            <p class="text-center">
+                Hi, I'm Jitse and this is my personal website. I have 10+ years of programming experience, mainly in .NET. In my spare time I'm mostly programming im Rust, or I'm breaking my homelab setup to make sure my Linux ISO's can download fast enough.
+                I also have healthy non-IT related hobby's like gaming, beer brewing and cooking. This site is meant as a way to showcase both my professional experiences as well as my own hobby projects.
+                If you have questions about either, feel free to reach out using the contacts below.
+            </p>
+            <img class="w-64 scale-x-[-1]" src="images/hacking1.svg" alt="Man hacking" />
+        </div>
+    </div>
+    <hr class="border-2 border-double border-jitsem-700" />
+    <div class="mb-5">
+        <h4 class="text-jitsem-500 text-center py-2 mt-2 text-lg">
+            What I'm good at
+        </h4>
+        <div class="flex flex-col md:flex-row justify-around items-center py-5 text-xs md:text-base" >
+            <ul>
+                <li class="list-none flex md:my-0 my-4">
+                    <img class="inline" src="images/checkmark.svg" alt="checkmark" />
+                    <span class="text-center align-middle ml-2">C# and .NET, from low-lever system stuff to web-apps</span>
+                </li>
+                <li class="list-none flex md:my-0 my-4">
+                    <img class="inline" src="images/checkmark.svg" alt="checkmark" />
+                    <span class="text-center align-middle ml-2">Debugging obscure bugs (most of them I created myself)</span>
+                </li>
+                <li class="list-none flex md:my-0 my-4">
+                    <img class="inline" src="images/checkmark.svg" alt="checkmark" />
+                    <span class="text-center align-middle ml-2">Rust (I wrote my own OS once, and almost got it working)</span>
+                </li>
+                <li class="list-none flex md:my-0 my-4">
+                    <img class="inline" src="images/checkmark.svg" alt="checkmark" />
+                    <span class="text-center align-middle ml-2">Network protocols: TCP/UDP, HTTP, MQTT, gRPC, ...</span>
+                </li>
+                <li class="list-none flex md:my-0 my-4">
+                    <img class="inline" src="images/checkmark.svg" alt="checkmark" />
+                    <span class="text-center align-middle ml-2">Linux (or as I've recently taken to calling it, GNU plus Linux)</span>
+                </li>
+                <li class="list-none flex md:my-0 my-4">
+                    <img class="inline" src="images/checkmark.svg" alt="checkmark" />
+                    <span class="text-center align-middle ml-2">Dev-ops: Git, Docker, VMs, CI/CD, ...</span
+                    >
+                </li>
+            </ul>
+            <img class="w-1/3 md:mt-0 mt-5" src="images/coding1.svg" alt="Man coding" />
+        </div>
+    </div>
+</div>
+{% endblock %}
