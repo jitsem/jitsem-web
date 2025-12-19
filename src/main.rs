@@ -2,7 +2,7 @@ use askama::Template;
 use axum::{
     Router,
     http::StatusCode,
-    response::{Html, IntoResponse, Response},
+    response::{Html, IntoResponse, Redirect, Response},
     routing::get,
 };
 use tower_http::services::ServeFile;
@@ -13,7 +13,7 @@ async fn main() -> anyhow::Result<()> {
     let port = 8000_u16;
     let addr = std::net::SocketAddr::from(([0, 0, 0, 0], port));
     let mut router = Router::new();
-    router = router.route("/", get(index));
+    router = router.route("/", get(Redirect::temporary("/about")));
     router = router.route("/about", get(about));
     router = router.route("/playground", get(playground));
     router = router.route("/projects", get(projects));
@@ -65,11 +65,6 @@ async fn about() -> impl IntoResponse {
     HtmlTemplate(template)
 }
 
-async fn index() -> impl IntoResponse {
-    let template = IndexTemplate {};
-    HtmlTemplate(template)
-}
-
 #[derive(Template)]
 #[template(path = "about.html")]
 struct AboutTemplate;
@@ -81,10 +76,6 @@ struct PlaygroundTemplate;
 #[derive(Template)]
 #[template(path = "projects.html")]
 struct ProjectsTemplate;
-
-#[derive(Template)]
-#[template(path = "index.html")]
-struct IndexTemplate;
 
 struct HtmlTemplate<T>(T);
 impl<T> IntoResponse for HtmlTemplate<T>
