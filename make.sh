@@ -1,6 +1,6 @@
 #!/bin/sh
 DIR="$(dirname "$0")"
-TAILWIND_VERSION="v4.1.14"
+TAILWIND_VERSION="v4.1.18"
 TAILWIND_BINARY="$DIR/tailwindcss"
 
 # Install Tailwind if not exists
@@ -13,6 +13,9 @@ fi
 if cargo "$@"; then
     # Run Tailwind build
     "$TAILWIND_BINARY" -i "$DIR/styles.css" -o "$DIR/assets/site.css"
+
+     mkdir -p "$DIR/target/debug/"
+     mkdir -p "$DIR/target/release/"
 
      # Remove and copy assets to target directories
      rm -rf "$DIR/target/debug/assets"

@@ -1,0 +1,9 @@
+services:
+    jitsem_website:
+        build: .
+        image: jitsem_website:latest
+        ports:
+            - "8000:8000"
+        restart: unless-stopped
+        environment:
+            RUST_LOG: info
