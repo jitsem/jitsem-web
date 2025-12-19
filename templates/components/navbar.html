@@ -8,14 +8,14 @@
         <div>
             <ul class="flex justify-between">
                 <li class="mx-3 text-xl md:text-3xl no-underline lowercase hover:text-jitsem-500 transition duration-500">
-                    <a href="/about">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li
                     class="mx-3 text-xl md:text-3xl no-underline lowercase hover:text-jitsem-500 transition duration-500">
-                    <a href="/projects">Projects</a>
+                    <a class="nav-link"  href="/projects">Projects</a>
                 </li>
                 <li class="mx-3 text-xl md:text-3xl no-underline lowercase hover:text-jitsem-500 transition duration-500">
-                    <a href="/playground">Playground</a>
+                    <a class="nav-link"  href="/playground">Playground</a>
                 </li>
                 <li>
                     <div>
@@ -26,4 +26,19 @@
             </ul>
         </div>
     </div>
+    <script>
+    function updateActiveNav() {
+	const path = window.location.pathname;
+
+	document.querySelectorAll(".nav-link").forEach(a => {
+		a.classList.toggle(
+			"underline",
+			a.getAttribute("href") === path
+		);
+	});
+    }
+
+    document.addEventListener("DOMContentLoaded", updateActiveNav);
+    document.addEventListener("htmx:afterSwap", updateActiveNav);
+    </script>
 </div>

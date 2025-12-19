@@ -44,6 +44,7 @@ async fn main() -> anyhow::Result<()> {
         "/images/programming1.svg",
         ServeFile::new("assets/images/programming1.svg"),
     );
+    router = router.route_service("/favicon.ico", ServeFile::new("assets/images/favicon.ico"));
 
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, router).await.unwrap();
