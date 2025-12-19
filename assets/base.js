@@ -65,29 +65,24 @@ async function renderGithubProjects(container) {
     				</div>
     			`;
 }
+function syncThemeToggle() {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
+    toggle.checked = document.documentElement.classList.contains("dark");
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    let darkMode = true;
-
-    function handleSwitchDarkMode() {
-        darkMode = !darkMode;
-
-        if (darkMode) {
-            document.documentElement.classList.add("dark");
-        } else {
-            document.documentElement.classList.remove("dark");
-        }
-    }
-
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
         document.documentElement.classList.add("dark");
-        darkMode = true;
     } else {
         document.documentElement.classList.remove("dark");
-        darkMode = false;
     }
-
-    document
-        .getElementById("theme-toggle")
-        .addEventListener("click", handleSwitchDarkMode);
+    syncThemeToggle()
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest("#theme-toggle")) return;
+        document.documentElement.classList.toggle("dark");
+        syncThemeToggle()
+    });
 });
+document.addEventListener("htmx:afterSwap", syncThemeToggle);
