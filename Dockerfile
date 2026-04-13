@@ -18,5 +18,5 @@ WORKDIR /app
 COPY --from=builder /app/assets /app/assets
 COPY --from=builder /app/target/release/jitsem_website /app/app
 
-EXPOSE 8080
+EXPOSE 8000
 CMD ["/app/app"]
